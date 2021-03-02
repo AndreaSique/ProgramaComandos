@@ -1,0 +1,168 @@
+PERMISOS DE ARCHIVOS Y ACCESOS
+	todos los archivos o directorios tiene una sección que indica los permisos que se
+	le asignan, los permisos se dividen en 4 secciones las cuales son:
+		ejemplo: drwx-wxrwx
+		como se ven los grupos: d rwx -wx rwx
+
+
+	1	la primera sección indica el tipo de elemento que se enlisto este puede ser
+		un directorio (carpeta) o un archivo.
+
+	2	en el segundo grupo se indica los permisos que tiene el usuario los cuales
+		pueden ser de lectura (r), escritura (w) y de ser un archivo ejecutables de
+		ejecución (x) de no contar con alguno de estos permisos se indicara con el
+		signo menos (-).
+
+	3	en el tercer grupo se indica los permisos para los integrantes del grupo al
+		que pertenece el archivo.
+
+	4	en el tercer grupo se indica los permiso que otros usuarios que los cuales
+		pueden ser varios. 
+
+	para ver los permisos que tiene un archivo o directorio podemos verificarlos con el
+	comando ls -l estos permisos se encuentra al principio de la lista.
+
+	PRIEMRA SECCIÓN
+		en esta sección se pueden encontrar dos caracteres diferentes:
+			-	el guion (-) indica que es un archivo común ya sea un
+				ejecutable o un documento de cualquier extensión.
+
+			d	este signo indica que el elemento enlistado es un directorio
+				común mente conocido como carpeta.
+
+	SECCIÓN 2 3 Y 4
+		estas sección se divide en grupos de tres y se puede encontrar 4 tipos de
+		carácter los cuales indican si tiene o no permiso según la letra que corres-
+		ponde.
+
+			-	indica que el archivo o directorio no cuenta con el permiso
+				asignado.
+
+			r	esto indica que tiene permiso de lectura según el grupo a
+				quien este asignado 
+
+			w	indica que tiene permiso de escritura.
+
+			x	si el archivo fuera un ejecutable podrías ver si se tiene
+				permiso de ejecución de ser un directorio esto significaría
+				que tiene permiso para ingresar.
+
+
+	CAMBIAR LOS PERMISOS DE UN ARCHIVO O DIRECTORIO.
+	para cambiar los permisos de un archvio o directorio tenemos diferentes formas de
+	hacerlos aca algunos de los metodos mas comunes.
+
+	chmod	este comando necesita de algunas variables para funcionar tales como indicar
+	a quien se desea modificar y que permiso.
+
+	INDICAR A QUE GURPO SE DESEA MODIFICAR.
+
+		u	El usuario propietario del archivo o directorio.
+
+		g	El grupo propietario del archivo o directorio.
+
+		o	Cualquier otro que no sea el usuario o integrante del grupo.
+
+		a	Se refiere a todos los grupos ya sea el usuario grupo y otros.
+
+	INIDICAR SI SE DESEA AGREGA O RETIRAR UN PERMISO, TAMBIEN PUEDES ESPECIFICAR EL
+	PERMISO.
+
+		+	Añadir el permiso (agrega la letra del permiso si lo crees necesario)
+
+		=	Especifica el permiso exacto.
+
+		-	Elimina el permiso que indiques.
+
+
+	INDICAR EL PERMISO,
+	puedes indicar el permiso escribiendo la letra que lo representa.
+
+	EJEMPLOS DE chmod
+
+	1)	en este comando retiraremos el permiso de escritura del archivo de ejemplo
+		de la sección de grupo.
+
+			chmod g-w ejemplo.txt
+
+	2)	con este comando agregaremos el permiso de ejecución al archivo de ejemplo
+		de la sección de usuario.
+
+			chmod u+x ejemplo.txt
+
+	3)	con el siguiente comando agregaremos el permiso de lectura a todos los
+		grupos, con esta sección solo agregamos sin alterar los otros tipos de
+		permisos.
+
+			chmod a+w ejemplo.txt
+
+	4)	con el siguiente comando podemos agregar todos los permisos a todos los
+		grupos, cabe aclarar que la configuración que agregues en este comando 
+		se colocara en todo y si no especificas uno de los permisos este será 
+		tomado como nulo.
+
+			chmod a=rwx ejemplo.txt
+
+	
+	CAMBIAR LOS PERMISOS UTILIZANDO NUMEROS
+	para este método nos guiaremos por medio de una tabla numérica que indica el tipo
+	de permiso de cada grupo.
+
+	numero	binario	  r	  w	  x
+	---------------------------------------
+	   0	  000	  X	  X	  X
+	   1	  001	  X	  X	  /
+	   2	  010	  X	  /	  X
+	   3	  011	  X	  /	  /
+	   4	  100	  /	  X	  X
+	   5	  101	  /	  X	  /
+	   6	  110	  /	  /	  X
+	   7	  111	  /	  /	  /
+
+	ejemplos de aplicación:
+		chmod 301 ejemplo.txt
+
+		PRIMER NUEMRO DEL ARCHVIO DE EJEMPLO:
+		en este comando al grupo de usuario se le aplica los permisos correspondientes
+		al numero 3 los cuales en la tabla especifica que tiene permiso de escritura y
+		ejecución mas no de lectura (-wx)
+
+		SEGUNDO NUMERO DEL ARCHVIO DE EJEMPLO:
+		en este comando en la sección de grupo tiene los permisos que indica el número
+		0 los cuales en la tabla especifica que no tiene ningún tipo de permiso (---)
+
+		TERCER NUMERO DEL ARCHVIO DE EJEMPLO:
+		en este comando en la sección de otros tiene los permisos que indica el número
+		1 los cuales en la tabla especifica que solo tiene permiso de ejecución (--x)
+
+CAMBIAR EL PROPIETARIO DE UN ARCHIVO O DIRECTORIO
+	normalmente quien crea el archivo es el propietario pero existe un usuario que tiene
+	el poder absoluto sombre todos los demas este usuario es el usuario root este 
+	usuario puede controlar tanto a los usuario comunes como los grupos e invitados
+	
+	TIPOS DE USUARIOS:
+
+	1) usuario root		quien tiene el control sobre todo el ordenador.
+
+	2) usuarios ordinarios	estos son definidos por el usuario root entre ellos esta
+				el usuario predeterminado el que se asigna al instalar
+				el sistema operativo en tu caso el usuario rockemma.
+
+	3) grupos		los grupos pueden ser creados segun se necesiten de forma
+				predeterminada ya existe un grupo con el mismo nombre del
+				usuario quien administra la computadora.
+
+	CAMBIAR EL PROPIETARIO DE UN ARCHVIO
+	para cambiar el propietario de un archivo es necesario tene permiso de administrado
+	en este caso se necesita ser usuario root para ello antepondremos al comando para
+	cambiar el propietario la palabra sudo que nos dara permiso de super usuario utili-
+	zando la contraseña de regristo.
+
+		chown		con este comando cambiamos al propietario del archivo con
+				permisos de administrador.
+
+					sudo chown nombreNuevousuario nombreArchivo.txt
+		
+				NOTA	recuerda que si el propietario es el usuario root
+					es necesario anteponer la palabra sudo y la
+					contraseña para poder realizar acciones sobre el.

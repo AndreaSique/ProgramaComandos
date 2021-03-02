@@ -1,0 +1,48 @@
+			COMANDOS 
+
+
+-ls: muestra una lista de informacion sobre archivos contenidos en el directorio actual
+
+-ls -l: muestra mas informacion sobre cada uno de los archivos enumerados.
+
+-ls -r: imprime los resultados en orden alfabético inverso.
+
+-ls -t: ordena los archivos por su sello de tiempo.
+
+-ls -s: ordena los archivos por tamaño de archivo.
+
+-ls -l -r: imprime un listado largo en orden alfabético inverso.
+
+-aptitude: es una función de gestión de paquetes, disponibles solo en algunas versiones de Linux.
+
+-aptitude -v: se puede obtener una variedad de respuestas, estas se pueden denotar por separado o combinadas.
+
+-pwd: imprime el directorio de trabajo, su ubicación actual dentro del sistema de archivos.
+
+-cd: permite cambiar de directorio y navegar por la estructura del sistema de archivos.
+
+-su: permite actuar temporalmente como un usuario diferente.
+
+-sl: requiera acceso administrativo.
+
+-exit: permite volver a la cuenta y cierra la sesión.
+
+-sudo: permite a un usuario ejecutar un comando como otro usuario.
+
+-u: para especificar una cuenta de usuario diferente.
+
+-chmod: se utiliza para cambiar los permisos de un archivo o directorio.
+
+-cat(concatenar): es utilizado para ver el contenido de archivos pequeños.
+
+-head: muestra las primeras lineas del archivo.
+
+-tail: se utilizan para ver las ultimas lineas del archivo.
+
+-head -n: especifica la cantidad de lineas del archivo que se desea mostrar.
+
+-cp: se utiliza para copiar archivos.
+
+-dd: es utilizado para copiar archivos o particiones enteras al nivel de bits.
+
+-clear: limpia la pantalla.
